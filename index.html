@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos Proposal — 4サイト仕上げプロジェクト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#17233D;
+    --ink:#2B3548;
+    --coral:#FF6B4A;
+    --blue:#5B7FA6;
+    --cream:#F6F4EE;
+    --line:#D9D4C3;
+    --paper:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.85;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.font-head{
+    font-family:'Sora','Noto Sans JP',sans-serif;
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:var(--navy);
+    color:var(--cream);
+    padding:100px 0 140px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-120px;right:-120px;
+    width:420px;height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(255,107,74,0.35), transparent 70%);
+    filter:blur(10px);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-160px;left:-80px;
+    width:360px;height:360px;
+    border-radius:50%;
+    background:radial-gradient(circle at 60% 60%, rgba(91,127,166,0.4), transparent 70%);
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    letter-spacing:0.18em;
+    font-weight:600;
+    color:var(--coral);
+    border:1px solid rgba(255,107,74,0.5);
+    padding:6px 14px;
+    border-radius:999px;
+    position:relative;
+    z-index:2;
+  }
+  .eyebrow span.dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--coral);
+    display:inline-block;
+  }
+  .hero h1{
+    position:relative;
+    z-index:2;
+    font-size:clamp(32px,5.5vw,58px);
+    font-weight:800;
+    line-height:1.35;
+    margin:28px 0 22px;
+    max-width:820px;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--coral);
+  }
+  .hero p.lead{
+    position:relative;
+    z-index:2;
+    font-size:16px;
+    color:#CBD3E1;
+    max-width:560px;
+    margin-bottom:48px;
+  }
+  .site-stack{
+    position:relative;
+    z-index:2;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .site-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    backdrop-filter:blur(4px);
+    border-radius:14px;
+    padding:18px 20px;
+    min-width:150px;
+    flex:1 1 150px;
+  }
+  .site-card .num{
+    font-family:'Sora',sans-serif;
+    font-size:26px;
+    font-weight:700;
+    color:var(--coral);
+  }
+  .site-card .cap{
+    font-size:12px;
+    color:#B9C2D4;
+    margin-top:4px;
+    letter-spacing:0.03em;
+  }
+
+  /* ===== SECTION COMMON ===== */
+  section{
+    padding:90px 0;
+  }
+  .tag-label{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.14em;
+    color:var(--blue);
+    background:rgba(91,127,166,0.12);
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  h2.sec-title{
+    font-size:clamp(24px,3.4vw,34px);
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:20px;
+    letter-spacing:-0.01em;
+  }
+  .sec-desc{
+    max-width:640px;
+    color:#4A5568;
+    font-size:15.5px;
+  }
+
+  /* ===== UNDERSTANDING ===== */
+  .understand{
+    background:var(--paper);
+    position:relative;
+  }
+  .understand-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .quote-box{
+    background:var(--navy);
+    color:var(--cream);
+    border-radius:20px;
+    padding:36px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .quote-box::before{
+    content:"“";
+    position:absolute;
+    top:-10px;left:16px;
+    font-size:120px;
+    font-family:'Sora',serif;
+    color:rgba(255,107,74,0.25);
+    line-height:1;
+  }
+  .quote-box p{
+    position:relative;
+    z-index:1;
+    font-size:16.5px;
+    color:#E7EBF2;
+  }
+  .quote-box .who{
+    margin-top:20px;
+    font-size:12px;
+    letter-spacing:0.1em;
+    color:var(--coral);
+    font-weight:700;
+  }
+  .point-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .point-item{
+    display:flex;
+    gap:14px;
+    padding:16px 18px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#FCFBF7;
+  }
+  .point-item .mark{
+    flex:0 0 auto;
+    width:30px;height:30px;
+    border-radius:8px;
+    background:linear-gradient(135deg,var(--coral),#FF8F73);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Sora',sans-serif;
+    font-weight:700;
+    font-size:13px;
+  }
+  .point-item .txt{
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .point-item .txt b{
+    color:var(--navy);
+  }
+
+  /* ===== VALUE CARDS ===== */
+  .value{
+    background:linear-gradient(180deg, var(--cream) 0%, #EFEBDE 100%);
+  }
+  .value-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:44px;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .vcard{
+    background:var(--paper);
+    border-radius:18px;
+    padding:28px 24px;
+    border:1px solid var(--line);
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .vcard:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 30px -14px rgba(23,35,61,0.25);
+  }
+  .vcard .vnum{
+    font-family:'Sora',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    color:var(--blue);
+    letter-spacing:0.1em;
+  }
+  .vcard h3{
+    font-size:18px;
+    margin:12px 0 10px;
+    color:var(--navy);
+    font-weight:700;
+  }
+  .vcard p{
+    font-size:14px;
+    color:#57607A;
+  }
+  .vcard.wide{
+    grid-column:span 1;
+  }
+
+  /* ===== SCHEDULE ===== */
+  .schedule{
+    background:var(--navy);
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .schedule::before{
+    content:"";
+    position:absolute;
+    top:0;left:50%;
+    width:1px;height:100%;
+    background:rgba(255,255,255,0.06);
+  }
+  .sched-head h2{color:var(--cream);}
+  .sched-head .sec-desc{color:#B9C2D4;}
+  .timeline{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  .week{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:16px;
+    padding:24px 20px;
+    position:relative;
+  }
+  .week .wk-no{
+    font-family:'Sora',sans-serif;
+    font-size:32px;
+    font-weight:800;
+    color:rgba(255,107,74,0.85);
+    line-height:1;
+  }
+  .week .wk-title{
+    margin:14px 0 8px;
+    font-weight:700;
+    font-size:15px;
+    color:#fff;
+  }
+  .week p{
+    font-size:13px;
+    color:#C4CCDB;
+  }
+  .week:not(:last-child)::after{
+    content:"→";
+    position:absolute;
+    top:50%;right:-22px;
+    transform:translateY(-50%);
+    color:rgba(255,255,255,0.3);
+    font-size:16px;
+    display:none;
+  }
+  @media(min-width:860px){
+    .week:not(:last-child)::after{display:block;}
+  }
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background:var(--cream);
+    text-align:center;
+    padding:110px 0 120px;
+    position:relative;
+  }
+  .closing::before{
+    content:"";
+    position:absolute;
+    top:20px;left:50%;
+    transform:translateX(-50%);
+    width:220px;height:220px;
+    background:radial-gradient(circle, rgba(255,107,74,0.18), transparent 70%);
+  }
+  .closing h2{
+    position:relative;
+    font-size:clamp(24px,4vw,36px);
+    color:var(--navy);
+    font-weight:800;
+    margin-bottom:18px;
+  }
+  .closing p{
+    position:relative;
+    max-width:520px;
+    margin:0 auto 36px;
+    color:#4A5568;
+    font-size:15.5px;
+  }
+  .cta-btn{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--coral);
+    color:#fff;
+    font-weight:700;
+    font-size:15px;
+    padding:16px 34px;
+    border-radius:999px;
+    box-shadow:0 14px 26px -10px rgba(255,107,74,0.55);
+    transition:transform .2s ease;
+  }
+  .cta-btn:hover{transform:translateY(-3px);}
+  .footer-note{
+    margin-top:40px;
+    font-size:12px;
+    color:#8A93A6;
+    letter-spacing:0.05em;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:860px){
+    .understand-grid{grid-template-columns:1fr;}
+    .card-grid{grid-template-columns:repeat(2,1fr);}
+    .timeline{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:560px){
+    section{padding:64px 0;}
+    .hero{padding:80px 0 100px;}
+    .card-grid{grid-template-columns:1fr;}
+    .timeline{grid-template-columns:1fr;}
+    .site-stack{gap:10px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow"><span class="dot"></span>PROPOSAL FROM KAIROS TO mhsc0803</span>
+      <h1>4つの現場に散らばった<br>作りかけを、<em>ひとつの着地点</em>へ。</h1>
+      <p class="lead">
+        求人サイト4本・約400ページ規模の仕上げ工程を、コーディング／AI記事作成／画像加工まで一気通貫で。
+        Kairosが、残り工程を最短距離で完走させます。
+      </p>
+      <div class="site-stack">
+        <div class="site-card"><div class="num">4</div><div class="cap">SITES TO FINISH</div></div>
+        <div class="site-card"><div class="num">400</div><div class="cap">PAGES / TOTAL</div></div>
+        <div class="site-card"><div class="num">200</div><div class="cap">COLUMN ARTICLES</div></div>
+        <div class="site-card"><div class="num">30</div><div class="cap">DAYS TO DELIVER</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== UNDERSTANDING ===== -->
+  <section class="understand">
+    <div class="wrap">
+      <span class="tag-label">案件理解</span>
+      <h2 class="sec-title">この募集、こう読み解きました。</h2>
+      <p class="sec-desc">単発の制作依頼ではなく「進行中プロジェクトの仕上げ」。既存のトンマナ・構成を壊さず、限られた期間で均質な品質に揃えることが最大のポイントだと考えています。</p>
+
+      <div class="understand-grid" style="margin-top:44px;">
+        <div class="quote-box">
+          <p>
+            「TOPページはこれから作り込み、コラムは各サイト50本ずつ、既存ページはPC・スマホともに調整が必要。
+            求人サイトなのでフォーマットは似ているが、それでも400ページ規模を1ヶ月・10万円台でやり切る体制がいる」
+            ——募集内容を、私たちはこう捉えています。
+          </p>
+          <div class="who">KAIROS / 案件理解メモ</div>
+        </div>
+
+        <div class="point-list">
+          <div class="point-item">
+            <div class="mark">01</div>
+            <div class="txt"><b>4サイト同時進行</b>のため、テンプレート化と分業設計が仕上がりのカギ。</div>
+          </div>
+          <div class="point-item">
+            <div class="mark">02</div>
+            <div class="txt">TOP・全体・コラムで<b>求められるスキルが異なる</b>（構成／コーディング／文章生成／画像加工）。</div>
+          </div>
+          <div class="point-item">
+            <div class="mark">03</div>
+            <div class="txt">求人サイト特有の<b>「同じ構造の量産」</b>を、AIと定型フローでスピード対応。</div>
+          </div>
+          <div class="point-item">
+            <div class="mark">04</div>
+            <div class="txt">1ヶ月という納期の中で<b>PC/スマホ双方の表示崩れ</b>を防ぐチェック体制が必要。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALUE ===== -->
+  <section class="value">
+    <div class="wrap">
+      <div class="value-head">
+        <div>
+          <span class="tag-label">提供できる価値</span>
+          <h2 class="sec-title">Kairosが、仕上げ工程を巻き取ります。</h2>
+        </div>
+        <p class="sec-desc">コーディング・AIライティング・画像加工を1チームで完結。工程間の伝言ゲームが発生しません。</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="vcard">
+          <div class="vnum">VALUE 01</div>
+          <h3>TOPページ制作一式</h3>
+          <p>構成案からAIによるテキスト作成、画像加工、コーディングまでをワンストップで仕上げます。</p>
+        </div>
+        <div class="vcard">
+          <div class="vnum">VALUE 02</div>
+          <h3>PC/SPコーディング調整</h3>
+          <p>既存デザインを踏襲しつつ、4サイト共通のチェックリストで表示崩れ・レイアウト崩れを潰し込みます。</p>
+        </div>
+        <div class="vcard">
+          <div class="vnum">VALUE 03</div>
+          <h3>コラム大量生成パイプライン</h3>
+          <p>各サイト50本×4サイト＝200本規模のコラムを、AIライティング＋人の校正フローで効率的に生産。</p>
+        </div>
+        <div class="vcard">
+          <div class="vnum">VALUE 04</div>
+          <h3>画像加工・流し込み</h3>
+          <p>アイキャッチ・バナー類のトンマナを統一し、コラムページへの流し込みまで一気に対応。</p>
+        </div>
+        <div class="vcard">
+          <div class="vnum">VALUE 05</div>
+          <h3>4サイト横断の進行管理</h3>
+          <p>サイトごとの進捗・残タスクを可視化し、1ヶ月の中でも遅延しない体制で報告します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCHEDULE ===== -->
+  <section class="schedule">
+    <div class="wrap">
+      <div class="sched-head">
+        <span class="tag-label" style="background:rgba(255,107,74,0.15);color:var(--coral);">進め方</span>
+        <h2 class="sec-title">1ヶ月・4週間での完走イメージ。</h2>
+        <p class="sec-desc">4サイトを並行運用しながら、優先度の高いページから確実に仕上げていきます。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="week">
+          <div class="wk-no">W1</div>
+          <div class="wk-title">現状把握・素材共有</div>
+          <p>4サイトの現状データ・デザインルール・コラムのフォーマットを確認し、制作ルールを確定。</p>
+        </div>
+        <div class="week">
+          <div class="wk-no">W2</div>
+          <div class="wk-title">TOP仕上げ／記事生成開始</div>
+          <p>TOPページのテキスト・画像・コーディングを完成させつつ、コラム記事の量産をスタート。</p>
+        </div>
+        <div class="week">
+          <div class="wk-no">W3</div>
+          <div class="wk-title">全体コーディング調整</div>
+          <p>PC・スマホの表示調整と、コラムページへの画像・テキスト流し込みを並行して進行。</p>
+        </div>
+        <div class="week">
+          <div class="wk-no">W4</div>
+          <div class="wk-title">最終チェック・納品</div>
+          <p>4サイト横断で表示崩れ・誤字・リンク切れを最終確認し、順次納品します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLOSING ===== -->
+  <section class="closing">
+    <div class="wrap">
+      <h2>まずは、4サイトの現状を見せてください。</h2>
+      <p>現在の進捗・デザイン・コラムのフォーマットを拝見できれば、初回のお打ち合わせで具体的な分担とスケジュールをご提案します。</p>
+      <a href="#" class="cta-btn">Kairosに相談する →</a>
+      <div class="footer-note">KAIROS — Web制作・システム開発チーム／Proposal for mhsc0803</div>
+    </div>
+  </section>
+
+</body>
+</html>
